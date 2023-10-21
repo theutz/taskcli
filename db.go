@@ -26,3 +26,8 @@ func (t *taskDB) tableExists(name string) bool {
 	}
 	return false
 }
+
+func (t *taskDB) createTable() error {
+	_, err := t.db.Exec(`CREATE TABLE "tasks" ( "id" INTEGER, "name" TEXT NOT NULL, "project" TEXT, "status" TEXT, "created" DATETIME, PRIMARY KEY("id" AUTOINCREMENT))`)
+	return err
+}
