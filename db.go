@@ -19,3 +19,10 @@ func initTaskDir(path string) error {
 	}
 	return nil
 }
+
+func (t *taskDB) tableExists(name string) bool {
+	if _, err := t.db.Query("SELECT * FROM tasks"); err != nil {
+		return true
+	}
+	return false
+}
