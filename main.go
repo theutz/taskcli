@@ -28,7 +28,7 @@ func setupPath() string {
 	return taskDir
 }
 
-func openDb(path string) (*taskDB, error) {
+func openDB(path string) (*taskDB, error) {
 	db, err := sql.Open("sqlite3", filepath.Join(path, "tasks.db"))
 	if err != nil {
 		return nil, err
